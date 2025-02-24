@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie funktioniert das Internet?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .slide {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide active"> <h2>Wie funktioniert das Internet?</h2><p>Eine einfache Erklärung der Technologie hinter dem World Wide Web.</p><img src="internet.jpg" alt="Internet Illustration"></div>
+        <div class="slide"> <h2>Was ist das Internet?</h2><p>Das Internet ist ein weltweites Netzwerk aus Millionen von Computern und Servern.</p><img src="network.jpg" alt="Netzwerk"></div>
+        <div class="slide"> <h2>Wie werden Daten im Internet übertragen?</h2><p>Daten reisen in kleinen Paketen mit IP-Adressen durch das Netzwerk.</p><img src="data-transfer.jpg" alt="Datenübertragung"></div>
+        <div class="slide"> <h2>Der Weg einer Website-Anfrage</h2><p>1. Nutzer gibt URL ein.<br>2. DNS übersetzt in IP-Adresse.<br>3. Server liefert die Webseite.</p><img src="dns-process.jpg" alt="DNS Prozess"></div>
+        <div class="slide"> <h2>Die wichtigsten Internet-Protokolle</h2><p>HTTP, TCP/IP, FTP, SMTP – sie regeln die Kommunikation im Internet.</p><img src="protocols.jpg" alt="Internet Protokolle"></div>
+        <div class="slide"> <h2>Zukunft des Internets</h2><p>5G, KI, IoT und Quanteninternet werden das Netz der Zukunft gestalten.</p><img src="future-internet.jpg" alt="Zukunft des Internets"></div>
+        <div class="slide"> <h2>Fazit</h2><p>Das Internet verbindet die Welt und entwickelt sich ständig weiter.</p><img src="internet-globe.jpg" alt="Internet Welt"></div>
+        <div class="buttons">
+            <button onclick="prevSlide()">Zurück</button>
+            <button onclick="nextSlide()">Weiter</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
